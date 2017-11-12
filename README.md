@@ -1,5 +1,11 @@
 # Java Kata - Part 1: Library
 
+## How to use the service
+
+* Run the service as usual.
+* The web service is available at the port 8000. It returns JSON responses.
+* Following [the link](http://localhost:8000/) you can find a list of examples.
+
 Code kata in Java where you have to write a library of books and magazines.
 
 [A code kata is an exercise in programming which helps a programmer hone their skills through practice and repetition.](https://en.wikipedia.org/wiki/Kata_(programming))

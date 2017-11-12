@@ -23,6 +23,16 @@ public class HttpService {
 
         Spark.get("/status", (req, res) -> "ok");
 
+        Spark.get("/", (req, res) ->
+                "<a href=\"/books\">All books</a><br />" +
+                "<a href=\"/books/isbn/5554-5545-4518\">Example book</a><br />" +
+                "<a href=\"/books/author/null-rabe@echocat.org\">All books by null-rabe@echocat.org</a><br />" +
+                "<a href=\"/magazines\">All magazines</a><br />" +
+                "<a href=\"/magazines/isbn/2547-8548-2541\">Example magazine</a><br />" +
+                "<a href=\"/magazines/author/null-walter@echocat.org\">All magazines by null-walter@echocat.org</a><br />" +
+                "<a href=\"/all\">All books and magazines</a><br />" +
+                "<a href=\"/all/sorted\">All books and magazines sorted by title</a><br />");
+
         Spark.get("/books", (req, res) -> {
             return storage.getAllBooks();
         }, gson::toJson);
