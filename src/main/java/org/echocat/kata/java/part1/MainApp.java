@@ -1,8 +1,7 @@
 package org.echocat.kata.java.part1;
 
-import org.echocat.kata.java.part1.storage.AuthorStorage;
-import org.echocat.kata.java.part1.storage.BookStorage;
-import org.echocat.kata.java.part1.storage.MagazineStorage;
+import org.echocat.kata.java.part1.http.HttpService;
+import org.echocat.kata.java.part1.storage.*;
 
 import java.io.IOException;
 
@@ -10,10 +9,11 @@ import java.io.IOException;
 public class MainApp {
 
     public static void main(String[] args) throws IOException {
-        AuthorStorage authorStorage = AuthorStorage.fromFile("authors.csv");
-        BookStorage bookStorage = BookStorage.fromFile("books.csv", authorStorage);
-        MagazineStorage magazineStorage = MagazineStorage.fromFile("magazines.csv", authorStorage);
-        System.out.println(getHelloWorldText());
+        StorageImpl storage = new StorageImpl();
+        storage.load();
+
+        HttpService httpService = new HttpService(storage);
+        httpService.run();
     }
 
     protected static String getHelloWorldText() {

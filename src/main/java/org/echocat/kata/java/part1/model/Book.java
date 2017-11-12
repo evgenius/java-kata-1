@@ -3,18 +3,18 @@ package org.echocat.kata.java.part1.model;
 import java.util.Collections;
 import java.util.List;
 
-public class Book {
+public class Book implements DocumentWithIsbn, DocumentWithAuthors {
 
     private final String title;
     private final String isbn;
     private final String description;
-    private final List<Author> authors;
+    private final List<String> authorEmails;
 
-    public Book(String title, String isbn, String description, List<Author> authors) {
+    public Book(String title, String isbn, String description, List<String> authorEmails) {
         this.title = title;
         this.isbn = isbn;
         this.description = description;
-        this.authors = authors;
+        this.authorEmails = authorEmails;
     }
 
     public String getTitle() {
@@ -29,7 +29,7 @@ public class Book {
         return description;
     }
 
-    public List<Author> getAuthors() {
-        return Collections.unmodifiableList(authors);
+    public List<String> getAuthorEmails() {
+        return Collections.unmodifiableList(authorEmails);
     }
 }
