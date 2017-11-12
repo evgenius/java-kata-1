@@ -54,5 +54,9 @@ public class HttpService {
         Spark.get("/all", (req, res) -> {
             return storage.getAll();
         }, gson::toJson);
+
+        Spark.get("/all/sorted", (req, res) -> {
+            return storage.getAllSortedByTitle();
+        }, gson::toJson);
     }
 }

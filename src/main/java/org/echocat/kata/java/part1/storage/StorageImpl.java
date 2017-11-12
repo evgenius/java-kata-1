@@ -6,6 +6,7 @@ import org.echocat.kata.java.part1.model.Magazine;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -49,6 +50,13 @@ public class StorageImpl implements Storage {
     @Override
     public List<?> getAll() {
         return Stream.concat(bookStorage.getAll().stream(), magazineStorage.getAll().stream())
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<?> getAllSortedByTitle() {
+        return Stream.concat(bookStorage.getAll().stream(), magazineStorage.getAll().stream())
+                .sorted(Comparator.comparing(Document::getTitle))
                 .collect(Collectors.toList());
     }
 
