@@ -23,7 +23,7 @@ public class DocumentStorage<E extends DocumentWithIsbn & DocumentWithAuthors> {
     }
 
     public List<E> getByAuthorEmail(String authorEmail) {
-        return authorIndex.get(authorEmail);
+        return authorIndex.getOrDefault(authorEmail, new ArrayList<>());
     }
 
     public void createAuthorIndex() {
