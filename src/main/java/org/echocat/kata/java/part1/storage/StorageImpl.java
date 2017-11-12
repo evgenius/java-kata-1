@@ -1,7 +1,7 @@
 package org.echocat.kata.java.part1.storage;
 
 import org.echocat.kata.java.part1.model.Book;
-import org.echocat.kata.java.part1.model.DocumentWithTitle;
+import org.echocat.kata.java.part1.model.Document;
 import org.echocat.kata.java.part1.model.Magazine;
 
 import java.io.IOException;

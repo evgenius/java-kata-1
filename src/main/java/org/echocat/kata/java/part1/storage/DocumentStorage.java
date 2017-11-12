@@ -1,12 +1,10 @@
 package org.echocat.kata.java.part1.storage;
 
-import org.echocat.kata.java.part1.model.Book;
-import org.echocat.kata.java.part1.model.DocumentWithAuthors;
-import org.echocat.kata.java.part1.model.DocumentWithIsbn;
+import org.echocat.kata.java.part1.model.Document;
 
 import java.util.*;
 
-public class DocumentStorage<E extends DocumentWithIsbn & DocumentWithAuthors> {
+public class DocumentStorage<E extends Document> {
     private final Map<String, E> map = new HashMap<>();
     private Map<String, List<E>> authorIndex = new HashMap<>();
 
