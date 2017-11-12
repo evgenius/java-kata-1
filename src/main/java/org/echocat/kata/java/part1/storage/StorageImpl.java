@@ -1,11 +1,14 @@
 package org.echocat.kata.java.part1.storage;
 
 import org.echocat.kata.java.part1.model.Book;
+import org.echocat.kata.java.part1.model.DocumentWithTitle;
 import org.echocat.kata.java.part1.model.Magazine;
 
 import java.io.IOException;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class StorageImpl implements Storage {
 
@@ -41,6 +44,12 @@ public class StorageImpl implements Storage {
     @Override
     public List<Magazine> getMagazinesByAuthorEmail(String authorEmail) {
         return magazineStorage.getByAuthorEmail(authorEmail);
+    }
+
+    @Override
+    public List<?> getAll() {
+        return Stream.concat(bookStorage.getAll().stream(), magazineStorage.getAll().stream())
+                .collect(Collectors.toList());
     }
 
     public void load() throws IOException {

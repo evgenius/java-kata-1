@@ -13,4 +13,5 @@ public interface Storage {
     Collection<Magazine> getAllMagazines();
     List<Book> getBooksByAuthorEmail(String authorEmail);
     List<Magazine> getMagazinesByAuthorEmail(String authorEmail);
+    List<?> getAll();
 }

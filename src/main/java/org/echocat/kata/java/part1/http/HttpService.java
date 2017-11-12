@@ -50,5 +50,9 @@ public class HttpService {
             String authorEmail = req.params(":author");
             return storage.getMagazinesByAuthorEmail(authorEmail);
         }, gson::toJson);
+
+        Spark.get("/all", (req, res) -> {
+            return storage.getAll();
+        }, gson::toJson);
     }
 }
