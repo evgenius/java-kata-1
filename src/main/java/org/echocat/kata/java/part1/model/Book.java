@@ -3,7 +3,7 @@ package org.echocat.kata.java.part1.model;
 import java.util.Collections;
 import java.util.List;
 
-public class Book implements DocumentWithIsbn, DocumentWithAuthors {
+public class Book implements DocumentWithIsbn, DocumentWithAuthors, DocumentWithTitle {
 
     private final String title;
     private final String isbn;

@@ -3,7 +3,7 @@ package org.echocat.kata.java.part1.model;
 import java.util.Collections;
 import java.util.List;
 
-public class Magazine implements DocumentWithIsbn, DocumentWithAuthors {
+public class Magazine implements DocumentWithIsbn, DocumentWithAuthors, DocumentWithTitle {
     private final String title;
     private final String isbn;
     private final String publishedAt;
