@@ -1,12 +1,10 @@
 package org.echocat.kata.java.part1.storage;
 
+import org.echocat.kata.java.part1.model.Book;
 import org.echocat.kata.java.part1.model.DocumentWithAuthors;
 import org.echocat.kata.java.part1.model.DocumentWithIsbn;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DocumentStorage<E extends DocumentWithIsbn & DocumentWithAuthors> {
     private final Map<String, E> map = new HashMap<>();
@@ -14,6 +12,10 @@ public class DocumentStorage<E extends DocumentWithIsbn & DocumentWithAuthors> {
 
     public void add(E book) {
         map.put(book.getIsbn(), book);
+    }
+
+    public Collection<E> getAll() {
+        return map.values();
     }
 
     public E getByIsbn(String isbn) {
